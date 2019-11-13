@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% from "_formhelpers.html" import render_field %}
+
+<legend class="border-bottom mb-4">{{ legend }}</legend>
+
+<form method="POST" action="" role="form" enctype="multipart/form-data">
+
+    {{ form.hidden_tag() }}
+    {{ render_field(form.title, class='form-control') }}
+    {{ render_field(form.body, class='form-control formContent') }}
+
+    <button type="submit" class="button">Pubblica</button>
+</form>
+{% endblock %}

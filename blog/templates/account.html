@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="content-section">
+        <div class="media">
+          <img class="rounded-circle account-img" src="{{ image_file }}">
+          <div class="media-body">
+            <h2 class="account-heading">{{current_user.username}}</h2>
+            <p class="text-secondary">{{current_user.email}}</p>
+          </div>
+        </div>
+        {% from "_formhelpers.html" import render_field %}
+        <h3> Account Info</h3>
+
+        <form method="POST" action="{{url_for('users.account')}}" role="form" enctype="multipart/form-data">
+        
+            {{ form.hidden_tag() }}
+            {{ render_field(form.username, class='form-control') }}
+            {{ render_field(form.email, class='form-control') }}
+            {{ render_field(form.picture, class='form-control-file')}}
+              {% if form.picture.errors %}
+              {% for error in form.picture.errors %}
+              <span class="text-danger">{{ error }}</span><br>
+              {% endfor %}{% endif %}
+            <button type="submit" class="button">Modifica</button>
+        </form>
+</div>
+{% endblock %}

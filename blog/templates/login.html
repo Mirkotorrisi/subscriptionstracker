@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% from "_formhelpers.html" import render_field %}
+
+<form method="POST" action="{{url_for('users.login')}}" role="form">
+
+    {{ form.hidden_tag() }}
+    {{ render_field(form.email, class='form-control') }}
+    {{ render_field(form.password, class='form-control') }}
+    {{ render_field(form.remember, class='form-check-input') }}
+
+    <button type="submit" class="button" id="rcorners1"> <span>Log in</span></button>
+</form>
+<div class="border-top pt-3">
+    <small class="text-muted">
+        Non hai un account? <a class="ml-2" href="{{ url_for('users.register')}}">Sign in</a>
+    </small>
+</div>
+<div class="border-top pt-3">
+        <small class="text-muted ml-2">
+            <a class="ml-2" href="{{ url_for('users.reset_request') }}">Recupera nome utente / password</a>
+        </small>
+    </div>
+{% endblock %}
