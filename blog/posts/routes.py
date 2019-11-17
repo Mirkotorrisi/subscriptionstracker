@@ -56,5 +56,3 @@ def delete_post(post_id):
     db.session.commit()
     flash('Post eliminato', 'info')
     return redirect(url_for('main.index'))
-
-

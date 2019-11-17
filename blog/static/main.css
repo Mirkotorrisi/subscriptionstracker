@@ -3,9 +3,7 @@
   color: #000;
 }
   a:hover{
-    font-size: 150%;
     color: rgba(255, 0, 0, 0.541);
-    font-weight: bolder;
   }
   body {
     background: url("/static/images/bg.jpg") no-repeat fixed;
@@ -18,7 +16,7 @@
   }
   
   h1, h2, h3, h4, h5, h6 {
-    color: #b11f1f;
+    color:  #228997;
   }
   
   .bg-steel {
@@ -30,9 +28,8 @@
   }
   
   .site-header .navbar-nav .nav-link:hover {
-    color: #fbff10;
-    font-size: 150%;
-    padding: 1%;
+    color: #c7ca11;
+    border-bottom: #c7ca11 solid 1px;
   }
   
   .site-header .navbar-nav .nav-link.active {
@@ -74,7 +71,7 @@
     white-space: pre-line;
     margin: auto;
     background: rgb(50,165,172);
-    background: radial-gradient(circle, rgba(50,165,172,1) 3%, rgba(255,255,255,0) 55%, rgba(255,255,255,0) 100%);
+    background: radial-gradient(circle, rgba(129, 197, 201, 0.479) 3%, rgba(255, 255, 255, 0) 55%, rgba(255,255,255,0) 100%);
   }
   .article-img {
     height: 65px;
@@ -135,25 +132,21 @@
     background-image: url("https://cdn.pixabay.com/photo/2016/04/15/04/02/water-1330252__340.jpg");    
   }
 .button {
-  background-image: linear-gradient(90deg, #00C0FF 0%, rgb(0, 255, 242) 49%, rgb(79, 252, 88) 100%);
   position: relative;
-  color: #b11f1f;
+  color:  #228997;
   padding: 2%;
   display: inline-block;
   border-radius: 7px;
   transition: all 0.5s;
-  width: 100px;
-  height: 40px;
+  width: auto;
+  height: auto;
   text-align: center;
+  border: solid  #228997;
 }
 
 .button:hover{
-  font-size: 150%;
   text-shadow: #00C0FF;
-  width: 20%;
-  height: 15%;
-  border-radius: 15px;
-  background-image: linear-gradient(90deg, rgb(179, 255, 0) 0%, rgb(0, 255, 242) 49%, rgb(79, 96, 252) 100%);
+  background-image: linear-gradient(45deg, rgba(0, 238, 255, 0) 0%, rgba(21, 223, 213, 0.432) 30%, rgba(79, 246, 252, 0) 100%);
 }
 .containerC{
   width: 100px;
@@ -164,3 +157,11 @@
   background-size: cover;
 
 } 
+
+#likes{
+  background-image: linear-gradient(90deg, rgba(0, 191, 255, 0) 0%, rgba(0, 255, 242, 0.404) 49%, rgba(79, 252, 88, 0) 100%);
+  border-radius: 50px;
+}
+#active {
+  color: #c7ca11;
+}
