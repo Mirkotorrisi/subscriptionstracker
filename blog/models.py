@@ -64,6 +64,18 @@ class PostLike(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     post_id = db.Column(db.Integer, db.ForeignKey('post.id'))
 
+class Comment(db.Model):
+    __tablename__ = 'comment'
+    id = db.Column(db.Integer, primary_key=True)
+    author = db.Column(db.String(50))
+    post_id = db.Column(db.Integer, db.ForeignKey('post.id'))
+    date_posted = db.Column(db.DateTime(), nullable=False, default=datetime.utcnow)
+    content = db.Column(db.Text, nullable=False)
+
+    def __repr__(self):
+        return f"Comment('{self.content}', '{self.date_posted}', '{self.author}')"
+
+
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
@@ -71,6 +83,7 @@ class Post(db.Model):
     content = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     likes = db.relationship('PostLike', backref='post', lazy='dynamic')
+    comments = db.relationship('Comment', backref='post', lazy='dynamic')
 
     def __repr__(self):
         return f"Post('{self.title}', '{self.date_posted}', '{self.likes.count()}')"

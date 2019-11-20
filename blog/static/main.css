@@ -1,12 +1,10 @@
 ::selection {
-  background-color: rgb(33, 211, 77);
-  color: #000;
+  background-color: rgb(57, 87, 88);
+  color: rgb(255, 255, 255)
 }
-  a:hover{
-    color: rgba(255, 0, 0, 0.541);
-  }
+
   body {
-    background: url("/static/images/bg.jpg") no-repeat fixed;
+    background: radial-gradient(circle, rgba(237, 240, 240, 0.219) 3%, rgba(59, 138, 148, 0.24) 55%, rgba(158, 154, 154, 0.137) 100%);
     background-size: cover;
     color: #333333;
     margin-top: 5rem;
@@ -39,10 +37,6 @@
    width: 100px;
    height: 50px;
    position: relative;
-   background-image: url("C:\Users\LuLele\Desktop\flask2\blog\static\profile_pic\3ea673f124d8cd02CF_Mirko_Torrisi.png");
-   background-repeat: no-repeat;
-   background-size: cover;
-
  } 
  .formContent{
    height: 400px;
@@ -58,20 +52,13 @@
   }
   
   .article-title {
-    color: #304d8b;
-  }
-  
-  a.article-title:hover {
-    color: #0e375c;
-    font-style: italic;
+    color: #30718b;
   }
   
   .article-content {
     word-break: break-all;
     white-space: pre-line;
     margin: auto;
-    background: rgb(50,165,172);
-    background: radial-gradient(circle, rgba(129, 197, 201, 0.479) 3%, rgba(255, 255, 255, 0) 55%, rgba(255,255,255,0) 100%);
   }
   .article-img {
     height: 65px;
@@ -104,10 +91,7 @@
     border: 1px #3a9722;
   }
   .profpic:hover{
-    transition: all 3s;
-    height: 20%;
-    width: 20%;
-    padding-top: 50px;
+    border: rgb(44, 73, 80) solid;
   }
   .account-heading {
     font-size: 2.5rem;
@@ -129,24 +113,23 @@
     font-weight: bold;
     border-radius: 10px;
     object-fit: contain;
-    background-image: url("https://cdn.pixabay.com/photo/2016/04/15/04/02/water-1330252__340.jpg");    
+    background: radial-gradient(90deg, rgba(129, 146, 201, 0.479) 3%, rgba(255, 255, 255, 0) 55%, rgba(255,255,255,0) 100%);
+
+
   }
+#cuore {
+  width: 20%;
+  height: 20%;
+}
 .button {
-  position: relative;
   color:  #228997;
-  padding: 2%;
-  display: inline-block;
   border-radius: 7px;
-  transition: all 0.5s;
-  width: auto;
-  height: auto;
-  text-align: center;
-  border: solid  #228997;
+  border:  #228997;
 }
 
 .button:hover{
   text-shadow: #00C0FF;
-  background-image: linear-gradient(45deg, rgba(0, 238, 255, 0) 0%, rgba(21, 223, 213, 0.432) 30%, rgba(79, 246, 252, 0) 100%);
+  background-image: linear-gradient(45deg, rgba(0, 238, 255, 0) 0%, rgba(23, 131, 134, 0.432) 30%, rgba(79, 246, 252, 0) 100%);
 }
 .containerC{
   width: 100px;
@@ -159,9 +142,12 @@
 } 
 
 #likes{
-  background-image: linear-gradient(90deg, rgba(0, 191, 255, 0) 0%, rgba(0, 255, 242, 0.404) 49%, rgba(79, 252, 88, 0) 100%);
-  border-radius: 50px;
+  background-image: linear-gradient(90deg, rgba(79, 148, 144, 0.144) 49%, rgba(79, 252, 88, 0) 100%);
+  box-shadow: solid;
 }
 #active {
   color: #c7ca11;
+}
+#comments{
+  margin: 2%;
 }

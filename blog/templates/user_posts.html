@@ -11,14 +11,23 @@
         </div>
         <h2><a class="article-title" href="{{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a></h2>
         <p class="article-content">{{ post.content }}</p>
+        <div id="likes" class="col-md-6 col-12 col-lg-3 float-right border-top d-flex-column">
+            <div class="mr-auto p-2"><a class="border-bottom text-right" href="{{ url_for('posts.post', post_id=post.id) }}" id="comments" class="text-right">{{ post.comments.count() }} commenti</a></div>
+        {% if current_user.is_authenticated %}
+        {% if current_user.has_liked_post(post) %}
+        <a class="" href="{{ url_for('users.like_action', post_id=post.id, action='unlike') }}"><img id="cuore" src="http://www.transparentpng.com/thumb/instagram-heart/2pLraG-instagram-heart-emoji-free-download-transparent.png" alt="Instagram Heart Emoji Free Download Transparent @transparentpng.com"></a>
+        {% else %}
+        <a class="" href="{{ url_for('users.like_action', post_id=post.id, action='like') }}"><img id="cuore" src="http://www.transparentpng.com/thumb/instagram-heart/4iIo2U-instagram-heart-simple.png" alt="Instagram Heart Simple @transparentpng.com"></a>
+        {% endif %}
+        {% endif %}
+        <small>{{ post.likes.count() }} mi piace</small>
+        </div>
         {% if post.author == current_user %}
         <div>
-            <a class="button" href="{{url_for('posts.update_post', post_id=post.id)}}">Modifica</a>
+            <a class="btn button" href="{{url_for('posts.update_post', post_id=post.id)}}">Modifica</a>
             <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Elimina</button>
         </div> 
         {% endif %}
-
-
     </div>
 </article>
 {% if post.author == current_user %}

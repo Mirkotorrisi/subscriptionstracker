@@ -11,4 +11,34 @@
         <p class="article-content">{{ post.content }}</p>
     </div>
 </article>
+<div class="container col-12" id="comments">
+
+{% from "_formhelpers.html" import render_field %}
+
+<legend class="border-bottom mb-4"><h5>{{ legend }}:</h5></legend>
+{% if current_user.is_authenticated %}
+
+<form method="POST" action="" role="form" enctype="multipart/form-data">
+
+    {{ form.hidden_tag() }}
+    {{ render_field(form.body, class='form-control') }}
+
+    <button type="submit" class="button">Pubblica</button>
+</form>
+</div>
+{% endif %}
+<div class="container col-12 bg-white">
+{% for comment in comments %}
+
+<div class="border-bottom border-info">
+    <h5>{{comment.author}}</h5>
+    {{comment.content}}
+    <div class="d-flex flex-row-reverse">il {{ comment.date_posted.strftime('%d-%m-%Y') }}</div>
+</div>
+
+{% endfor %}
+</div>
+
+
+
 {% endblock %}

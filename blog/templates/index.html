@@ -1,5 +1,7 @@
 {% extends 'layout.html' %}
 {% block content %}
+<style>#home{color: #c7ca11;}</style>
+
 {% for post in posts.items %}
 <article class="media content-section">
     <img class='profpic rounded-circle article-img' src='{{ url_for("static", filename="profile_pic/"+post.author.image_file) }}'>
@@ -10,25 +12,24 @@
         </div>
         <h2><a class="article-title" href="{{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a></h2>
         <p class="article-content">{{ post.content }}</p>
-        <div class="container" id="likes">
+
+        <div id="likes" class="col-md-6 col-12 col-lg-3 float-right border-top d-flex-column">
+            <div class="mr-auto p-2"><a class="border-bottom text-right" href="{{ url_for('posts.post', post_id=post.id) }}" id="comments" class="text-right">{{ post.comments.count() }} commenti</a></div>
         {% if current_user.is_authenticated %}
         {% if current_user.has_liked_post(post) %}
-        <a class="button" id="heart" href="{{ url_for('users.like_action', post_id=post.id, action='unlike') }}"><span>Non mi piace più</span></a>
+        <a class="" href="{{ url_for('users.like_action', post_id=post.id, action='unlike') }}"><img id="cuore" src="http://www.transparentpng.com/thumb/instagram-heart/2pLraG-instagram-heart-emoji-free-download-transparent.png" alt="Instagram Heart Emoji Free Download Transparent @transparentpng.com"></a>
         {% else %}
-        <a class="button" id="heart" href="{{ url_for('users.like_action', post_id=post.id, action='like') }}"><span>Mi piace</span></a>
+        <a class="" href="{{ url_for('users.like_action', post_id=post.id, action='like') }}"><img id="cuore" src="http://www.transparentpng.com/thumb/instagram-heart/4iIo2U-instagram-heart-simple.png" alt="Instagram Heart Simple @transparentpng.com"></a>
         {% endif %}
         {% endif %}
-
+        <small>{{ post.likes.count() }} mi piace</small>
         </div>
-        <h5 id="likes" class="text-right">Piace a {{ post.likes.count() }} persone</h5>
-
         {% if post.author == current_user %}
         <div>
-            <a class="button" href="{{url_for('posts.update_post', post_id=post.id)}}">Modifica</a>
+            <a class="btn button" href="{{url_for('posts.update_post', post_id=post.id)}}">Modifica</a>
             <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Elimina</button>
         </div> 
         {% endif %}
-        <div id="contenitore_bottone_like"></div>
     </div>
 </article>
 {% if post.author == current_user %}

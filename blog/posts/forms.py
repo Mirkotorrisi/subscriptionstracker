@@ -7,3 +7,8 @@ class PostForm(FlaskForm):
     body = TextAreaField('Post', validators=[DataRequired()])
     submit = SubmitField('Pubblica')
 
+
+class CommentForm(FlaskForm):
+    body = StringField('Commenta', validators=[DataRequired()])
+    submit = SubmitField('Invia')
+
