@@ -1,8 +1,8 @@
 from flask import render_template, url_for, flash, redirect, request, Blueprint
 from flask_login import login_user, current_user, logout_user, login_required
 from blog import db, bcrypt
-from blog.models import User, Post
-from blog.users.forms import (RegistrationForm, LoginForm, UpdateAccountForm,
+from blog.models import User, Abbonati
+from blog.users.forms import (RegistrationForm, LoginForm,
                                    RequestResetForm, ResetPasswordForm)
 from blog.users.utils import save_pic, send_reset_email
 
@@ -49,38 +49,6 @@ def logout():
     return redirect(url_for('main.index'))
 
 
-@users.route('/account', methods=['GET', 'POST'])
-@login_required
-def account():
-    form = UpdateAccountForm()
-    if form.picture.data:
-        picture_file = save_pic(form.picture.data)
-        current_user.image_file = picture_file
-    if form.validate_on_submit():
-        current_user.username = form.username.data
-        current_user.email = form.email.data
-        db.session.commit()
-        flash('Account aggiornato', 'success')
-        return redirect(url_for('users.account'))
-    elif request.method == 'GET':
-        form.username.data = current_user.username
-        form.email.data = current_user.email
-    image_file = url_for('static', filename='profile_pic/' + current_user.image_file)
-    return render_template('account.html', title='Account', image_file=image_file, form=form)
-
-
-@users.route('/user/<string:username>')
-def user_posts(username):
-    page = request.args.get('page', 1, type=int)
-    user = User.query.filter_by(username=username).first_or_404()
-
-    posts = Post.query.filter_by(author=user)\
-        .order_by(Post.date_posted.desc())\
-        .paginate(page=page, per_page=5)
-    return render_template('user_posts.html', user=user, posts=posts)
-
-
-
 @users.route('/reset_password', methods=['GET', 'POST'])
 def reset_request():
     if current_user.is_authenticated:
@@ -111,16 +79,3 @@ def reset_token(token):
         return redirect(url_for('users.login'))
 
     return render_template('reset_token.html', title="Reset Password", form=form)
-
-
-@users.route('/like/<int:post_id>/<action>')
-@login_required
-def like_action(post_id, action):
-    post = Post.query.filter_by(id=post_id).first_or_404()
-    if action == 'like':
-        current_user.like_post(post)
-        db.session.commit()
-    if action == 'unlike':
-        current_user.unlike_post(post)
-        db.session.commit()
-    return redirect(request.referrer)

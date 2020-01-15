@@ -1,14 +1,14 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, TextAreaField
+from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
+from wtforms.fields.html5 import DateField
 
-class PostForm(FlaskForm):
-    title = StringField('Titolo', validators=[DataRequired()])
-    body = TextAreaField('Post', validators=[DataRequired()])
+
+class NuovoAbbonato(FlaskForm):
+    nome = StringField('Nome', validators=[DataRequired()])
+    cell = StringField('Cell', validators=[DataRequired()])
+    scadenza = DateField('Scadenza', format='%Y-%m-%d')
+    quota = StringField('Quota', validators=[DataRequired()])
+    versato = StringField('Versato', default=0)
+    note = StringField('Note')
     submit = SubmitField('Pubblica')
-
-
-class CommentForm(FlaskForm):
-    body = StringField('Commenta', validators=[DataRequired()])
-    submit = SubmitField('Invia')
-

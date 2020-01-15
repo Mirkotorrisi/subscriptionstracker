@@ -1,5 +1,5 @@
 <style>
-#new{
+  #new {
     color: #c7ca11;
   }
 </style>
@@ -7,14 +7,20 @@
 {% block content %}
 {% from "_formhelpers.html" import render_field %}
 
-<legend class="border-bottom mb-4"><h5>{{ legend }}</h5></legend>
+<legend class="border-bottom mb-4">
+  <h5>{{ legend }}</h5>
+</legend>
 
 <form method="POST" action="" role="form" enctype="multipart/form-data">
 
-    {{ form.hidden_tag() }}
-    {{ render_field(form.title, class='form-control') }}
-    {{ render_field(form.body, class='form-control formContent') }}
+  {{ form.hidden_tag() }}
+  {{ render_field(form.nome, class='form-control') }}
+  {{ render_field(form.cell, class='form-control') }}
+  {{ render_field(form.scadenza, class='form-control') }}
+  {{ render_field(form.quota, class='form-control') }}
+  {{ render_field(form.versato, class='form-control') }}
+  {{ render_field(form.note, class='form-control') }}
 
-    <button type="submit" class="button">Pubblica</button>
+  <button type="submit" class="button">Pubblica</button>
 </form>
 {% endblock %}

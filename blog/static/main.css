@@ -18,7 +18,7 @@
   }
   
   .bg-steel {
-    background-color: #228997;
+    background-color: #2f0dc4;
   }
   
   .site-header .navbar-nav .nav-link {
@@ -51,52 +51,6 @@
     margin-bottom: 20px;
   }
   
-  .article-title {
-    color: #30718b;
-  }
-  
-  .article-content {
-    word-break: break-all;
-    white-space: pre-line;
-    margin: auto;
-  }
-  .article-img {
-    height: 65px;
-    width: 65px;
-    margin-right: 16px;
-  }
-  
-  .article-metadata {
-    padding-bottom: 1px;
-    margin-bottom: 4px;
-    border-bottom: 1px solid #990606
-  }
-  
-  .article-metadata a:hover {
-    color: #333;
-    text-decoration: none;
-  }
-  
-  .article-svg {
-    width: 25px;
-    height: 25px;
-    vertical-align: middle;
-  }
-  
-  .account-img {
-    height: 125px;
-    width: 125px;
-    margin-right: 20px;
-    margin-bottom: 16px;
-    border: 1px #3a9722;
-  }
-  .profpic:hover{
-    border: rgb(44, 73, 80) solid;
-  }
-  .account-heading {
-    font-size: 2.5rem;
-  }
-
   .form-control{
     color: blue;
   }
@@ -114,13 +68,7 @@
     border-radius: 10px;
     object-fit: contain;
     background: radial-gradient(90deg, rgba(129, 146, 201, 0.479) 3%, rgba(255, 255, 255, 0) 55%, rgba(255,255,255,0) 100%);
-
-
   }
-#cuore {
-  width: 20%;
-  height: 20%;
-}
 .button {
   color:  #228997;
   border-radius: 7px;
@@ -138,16 +86,7 @@
   background-image: url("C:\Users\LuLele\Desktop\flask2\blog\static\profile_pic\3ea673f124d8cd02CF_Mirko_Torrisi.png");
   background-repeat: no-repeat;
   background-size: cover;
-
 } 
-
-#likes{
-  background-image: linear-gradient(90deg, rgba(79, 148, 144, 0.144) 49%, rgba(79, 252, 88, 0) 100%);
-  box-shadow: solid;
-}
 #active {
   color: #c7ca11;
-}
-#comments{
-  margin: 2%;
 }
